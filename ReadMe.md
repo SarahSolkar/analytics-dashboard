@@ -4,12 +4,12 @@ A Flask-React application to visualize advisor data, accounts, and holdings.
 
 ## Overview
 
-This application provides a hierarchical view of:
-- Financial advisors and their total assets under management
+Hierarchical view of:
+- Financial advisors and their total assets
 - Accounts managed by each advisor
 - Holdings within each account
 
-The system uses a Flask backend API to serve data and a React frontend with MaterialReactTable, Reactstrap, Highcharts, Bootstrap for visualization.
+The system uses a Flask backend API to serve data and a React frontend with MaterialReactTable, Reactstrap, Highcharts, Bootstrap.
 
 ## Project Structure
 
@@ -76,7 +76,7 @@ The backend will start on `http://localhost:5000`
 
 ### Frontend Setup
 
-1. Install Node.js dependencies:
+1. Install dependencies:
 ```bash
 cd frontend
 npm install
@@ -92,7 +92,7 @@ The frontend will start on `http://localhost:5173`
 ## API Endpoints
 
 ### Advisors
-- `GET /api/advisors` - List all advisors with asset summaries
+- `GET /api/advisors` - Get all advisors with summary
 - `GET /api/advisors/<advisor_id>/accounts` - Get accounts managed by an advisor
 
 ### Accounts
@@ -102,7 +102,6 @@ The frontend will start on `http://localhost:5173`
 
 ### AdvisorDashboard
 
-Features:
 - Responsive layout using Reactstrap
 - Sortable columns
 - Currency formatting
@@ -170,3 +169,7 @@ Features:
 - Uses Reactstrap for layout, design
 - Uses Bootstrap for styling
 - Uses Highcharts for charts
+
+## Author
+- Sarah Ashraf Solkar
+- email: ssolkar@gmu.edu
