@@ -19,16 +19,29 @@ compound-dashboard/
 │   ├── app.py
 │   ├── requirements.txt
 │   └── data/
-│       └── sample_data.json
+│       └── sample.json
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   └── AdvisorDashboard.jsx
+│   │   │   └── AccountsModal.jsx
+│   │   │   └── AdvisorTable.jsx
+│   │   │   └── AppNavbar.jsx
+│   │   │   └── Chart.jsx
+│   │   │   └── Dashboard.jsx
+│   │   │   └── DonutChart.jsx
+│   │   │   └── Footer.jsx
+│   │   │   └── Holdings.jsx
+│   │   │   └── PieChart.jsx
+│   │   ├── services/
+│   │   │   └── AdvisorService.jsx
 │   │   ├── App.jsx
 │   │   └── index.js
+│   │   └── index.js
+│   │   └── main.jsx
 │   │   └── styles.css
 │   ├── package.json
 │   └── README.md
+│   └── vite.config.js
 └── ReadMe.md
 ```
 
@@ -36,7 +49,7 @@ compound-dashboard/
 
 - Python 3.8 or higher
 - Node.js 14 or higher
-- npm or yarn package manager
+- npm or yarn 
 
 ## Installation
 
@@ -80,21 +93,14 @@ The frontend will start on `http://localhost:5173`
 
 ### Advisors
 - `GET /api/advisors` - List all advisors with asset summaries
-- `GET /api/advisors/<advisor_id>` - Get specific advisor details
 - `GET /api/advisors/<advisor_id>/accounts` - Get accounts managed by an advisor
 
 ### Accounts
-- `GET /api/accounts/<account_number>` - Get account details
 - `GET /api/accounts/<account_number>/holdings` - Get holdings for a specific account
 
 ## Frontend Components
 
 ### AdvisorDashboard
-
-Main component that displays:
-1. Top-level advisor information
-2. Expandable rows showing account details
-3. Further expandable rows showing holdings
 
 Features:
 - Responsive layout using Reactstrap
@@ -153,13 +159,14 @@ Features:
 
 ### Backend
 - Built with Flask
-- Uses in-memory data (can be extended to use a database)
-- Implements RESTful API endpoints
+- Uses sample data
 - Includes dynamic value calculations
+- Returns JSON Response
 
 ### Frontend
 - Built with React
-- Uses MaterialReactTable for tabular data display
+- Uses MaterialReactTable for tabular data
+- Included search, sort on advisor table
 - Uses Reactstrap for layout, design
-- Implements three-level drill-down functionality
-- Includes loading states and error handling
+- Uses Bootstrap for styling
+- Uses Highcharts for charts

@@ -6,9 +6,11 @@ export const AppNavbar = () => {
     <>
       <div>
         <Navbar>
-          <NavbarBrand href="/">Compound</NavbarBrand>
+          <NavbarBrand href="/" className="fw-bold text-color">
+            Compound
+          </NavbarBrand>
           <NavbarText>
-            <IoIosSettings size={25} className="me-2" />
+            <IoIosSettings size={25} className="me-2 text-color" />
           </NavbarText>
         </Navbar>
       </div>

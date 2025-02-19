@@ -1,4 +1,4 @@
-import { Advisors } from "./components/Advisors";
+import { Dashboard } from "./components/Dashboard";
 import { AppNavbar } from "./components/AppNavbar";
 import { Footer } from "./components/Footer";
 
@@ -7,7 +7,7 @@ function App() {
     <>
       <div>
         <AppNavbar />
-        <Advisors />
+        <Dashboard />
         <Footer />
       </div>
     </>

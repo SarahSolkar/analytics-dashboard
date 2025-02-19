@@ -5,7 +5,7 @@ import "../styles.css";
 export const Footer = () => {
   return (
     <>
-      <CardFooter className="footer-style mt-2">
+      <CardFooter className="footer-style">
         Powered by Compound
       </CardFooter>
     </>

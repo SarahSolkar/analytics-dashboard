@@ -1,0 +1,108 @@
+{
+    "advisors": [
+        {
+            "id": "4",
+            "name": "Randall",
+            "custodians": [
+                {"name": "Schwab", "repId": "1271"},
+                {"name": "Fidelity", "repId": "8996"}
+            ],
+            "accounts": ["21889645", "21889646", "21889647"]
+        },
+        {
+            "id": "5",
+            "name": "Sarah",
+            "custodians": [
+                {"name": "Schwab", "repId": "1272"},
+                {"name": "Vanguard", "repId": "5432"}
+            ],
+            "accounts": ["31889645", "31889646"]
+        }
+    ],
+    "accounts": [
+        {
+            "name": "Bradley Green 401k",
+            "number": "21889645",
+            "repId": "9883",
+            "custodian": "Schwab",
+            "holdings": [
+                {"ticker": "HEMCX", "units": 77, "unitPrice": 398.63}
+            ]
+        },
+        {
+            "name": "Bradley Green IRA",
+            "number": "21889646",
+            "repId": "9883",
+            "custodian": "Schwab",
+            "holdings": [
+                {"ticker": "ICKAX", "units": 100, "unitPrice": 45.25},
+                {"ticker": "VFIAX", "units": 50, "unitPrice": 120.75}
+            ]
+        },
+        {
+            "name": "John Smith 401k",
+            "number": "21889647",
+            "repId": "1271",
+            "custodian": "Schwab",
+            "holdings": [
+                {"ticker": "VTI", "units": 200, "unitPrice": 220.50}
+            ]
+        },
+        {
+            "name": "Alice Johnson 401k",
+            "number": "31889645",
+            "repId": "1272",
+            "custodian": "Schwab",
+            "holdings": [
+                {"ticker": "QQQ", "units": 150, "unitPrice": 350.25}
+            ]
+        },
+        {
+            "name": "Bob Williams IRA",
+            "number": "31889646",
+            "repId": "5432",
+            "custodian": "Vanguard",
+            "holdings": [
+                {"ticker": "SPY", "units": 100, "unitPrice": 420.75}
+            ]
+        }
+    ],
+    "securities": [
+        {
+            "id": "2e5012db-3a39415d-93b48b1e3b453c6c",
+            "ticker": "ICKAX",
+            "name": "Delaware Ivy Crossover Credit Fund Class A",
+            "dateAdded": "2001-06-07T11:12:56.205Z"
+        },
+        {
+            "id": "3f6123ec-4b40526e-04c59c2f4c564d7d",
+            "ticker": "HEMCX",
+            "name": "American Funds SMALLCAP World Fund Class C",
+            "dateAdded": "2010-03-15T09:45:32.120Z"
+        },
+        {
+            "id": "4g7234fd-5c51637f-15d60d3g5d675e8e",
+            "ticker": "VFIAX",
+            "name": "Vanguard 500 Index Fund Admiral Shares",
+            "dateAdded": "2005-11-23T14:32:18.350Z"
+        },
+        {
+            "id": "5h8345ge-6d62748g-26e71e4h6e786f9f",
+            "ticker": "VTI",
+            "name": "Vanguard Total Stock Market ETF",
+            "dateAdded": "2008-07-12T10:18:45.720Z"
+        },
+        {
+            "id": "6i9456hf-7e73859h-37f82f5i7f897g0g",
+            "ticker": "QQQ",
+            "name": "Invesco QQQ Trust Series 1",
+            "dateAdded": "2007-09-17T15:23:12.430Z"
+        },
+        {
+            "id": "7j0567ig-8f84960i-48g93g6j8g908h1h",
+            "ticker": "SPY",
+            "name": "SPDR S&P 500 ETF Trust",
+            "dateAdded": "2006-05-30T12:34:56.890Z"
+        }
+    ]
+}

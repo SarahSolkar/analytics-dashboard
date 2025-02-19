@@ -4,7 +4,13 @@ import HighchartsReact from "highcharts-react-official";
 export const PieChart = (props) => {
   const options = {
     chart: { type: "pie" },
-    title: { text: "Advisor Market Share" },
+    title: {
+      text: "Advisor Market Share",
+      style: {
+        color: "#544fc5",
+        fontWeight: "bold",
+      },
+    },
     credits: {
       enabled: false,
     },

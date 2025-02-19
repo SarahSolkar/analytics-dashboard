@@ -4,7 +4,13 @@ import HighchartsReact from "highcharts-react-official";
 export const Chart = (props) => {
   const options = {
     chart: { type: "column" },
-    title: { text: "Assets Under Management" },
+    title: {
+      text: "Assets",
+      style: {
+        color: "#544fc5",
+        fontWeight: "bold",
+      },
+    },
     xAxis: { categories: props.advisors.map((adv) => adv.name) },
     yAxis: { title: { text: "Total Assets ($)" } },
     credits: {

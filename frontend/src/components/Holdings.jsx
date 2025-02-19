@@ -1,34 +1,48 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { MaterialReactTable } from "material-react-table";
 import { Badge } from "reactstrap";
+import { AdvisorService } from "../services/AdvisorService";
+
 export const Holdings = (props) => {
   const [holdings, setHoldings] = useState([]);
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/api/accounts/${props.accountNumber}/holdings`)
-      .then((response) => response.json())
-      .then((data) => setHoldings(data));
+    const fetchHoldings = async () => {
+      try {
+        const holdingData = await AdvisorService.getHoldings(
+          props.accountNumber
+        );
+        setHoldings(holdingData);
+      } catch (error) {
+        console.error("Error fetching advisors:", error);
+      }
+    };
+    fetchHoldings();
   }, []);
   const columns = useMemo(
     () => [
       {
-        accessorKey: "name",
-        header: "Advisor Name",
-        Cell: ({ cell }) => <strong>{cell.getValue()}</strong>,
+        accessorKey: "ticker",
+        header: "Ticker",
+        Cell: ({ cell }) => <code className="fw-bold">{cell.getValue()}</code>,
       },
       {
-        accessorKey: "account_count",
-        header: "Accounts",
+        accessorKey: "name",
+        header: "Holding Name",
+      },
+      {
+        accessorKey: "units",
+        header: "Units",
         Cell: ({ cell }) => (
-          <Badge color="info" pill>
-            {cell.getValue()}
+          <Badge color="dark" className="text-light">
+            {cell.getValue().toLocaleString()}
           </Badge>
         ),
       },
       {
-        accessorKey: "total_assets",
-        header: "Total Assets",
+        accessorKey: "unitPrice",
+        header: "Unit Price",
         Cell: ({ cell }) => (
-          <span className="text-success">
+          <span className="text-secondary">
             $
             {cell.getValue().toLocaleString(undefined, {
               minimumFractionDigits: 2,
@@ -38,16 +52,16 @@ export const Holdings = (props) => {
         ),
       },
       {
-        accessorKey: "custodians",
-        header: "Custodians",
+        accessorKey: "value",
+        header: "Value",
         Cell: ({ cell }) => (
-          <div>
-            {cell.getValue().map((custodian, index) => (
-              <Badge key={custodian.repId} color="secondary" className="me-1">
-                {custodian.name}
-              </Badge>
-            ))}
-          </div>
+          <span className="text-success fw-bold">
+            $
+            {cell.getValue().toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
+          </span>
         ),
       },
     ],
@@ -57,52 +71,7 @@ export const Holdings = (props) => {
     <>
       <MaterialReactTable
         data={holdings}
-        columns={[
-          {
-            accessorKey: "ticker",
-            header: "Ticker",
-            Cell: ({ cell }) => <code>{cell.getValue()}</code>,
-          },
-          {
-            accessorKey: "name",
-            header: "Holding Name",
-          },
-          {
-            accessorKey: "units",
-            header: "Units",
-            Cell: ({ cell }) => (
-              <Badge color="dark" className="text-light">
-                {cell.getValue().toLocaleString()}
-              </Badge>
-            ),
-          },
-          {
-            accessorKey: "unitPrice",
-            header: "Unit Price",
-            Cell: ({ cell }) => (
-              <span className="text-secondary">
-                $
-                {cell.getValue().toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </span>
-            ),
-          },
-          {
-            accessorKey: "value",
-            header: "Value",
-            Cell: ({ cell }) => (
-              <span className="text-success fw-bold">
-                $
-                {cell.getValue().toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </span>
-            ),
-          },
-        ]}
+        columns={columns}
         enableColumnFilters={false}
         enableColumnActions={false}
         enablePagination={false}
