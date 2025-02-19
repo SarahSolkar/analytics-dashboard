@@ -13,7 +13,6 @@ export const AdvisorService = {
     }
   },
 
-
   // Get advisor accounts
   getAdvisorAccounts: async (advisorId) => {
     try {

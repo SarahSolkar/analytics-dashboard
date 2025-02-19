@@ -18,7 +18,6 @@ export const Dashboard = () => {
   useEffect(() => {
     const fetchAdvisors = async () => {
       try {
-        // setLoading(true);
         const advisorData = await AdvisorService.getAdvisors();
         setAdvisors(advisorData);
       } catch (error) {

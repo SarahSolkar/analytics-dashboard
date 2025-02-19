@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MaterialReactTable } from "material-react-table";
 
 export const AdvisorTable = (props) => {

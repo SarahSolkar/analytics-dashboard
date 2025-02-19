@@ -5,9 +5,7 @@ import "../styles.css";
 export const Footer = () => {
   return (
     <>
-      <CardFooter className="footer-style">
-        Powered by Compound
-      </CardFooter>
+      <CardFooter className="footer-style">Powered by Compound</CardFooter>
     </>
   );
 };

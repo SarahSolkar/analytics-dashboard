@@ -3,7 +3,7 @@
 A Flask-React application to visualize advisor data, accounts, and holdings.
 
 ## Overview
-
+Option B - Frontend emphasis
 Hierarchical view of:
 - Financial advisors and their total assets
 - Accounts managed by each advisor
@@ -169,6 +169,13 @@ The frontend will start on `http://localhost:5173`
 - Uses Reactstrap for layout, design
 - Uses Bootstrap for styling
 - Uses Highcharts for charts
+
+### Future Enhancements
+
+- Add authentication and authorization
+- Add data export functionality
+- Add database storage
+- Add update, delete operations
 
 ## Author
 - Sarah Ashraf Solkar

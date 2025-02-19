@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-  Label,
-} from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { Holdings } from "./Holdings";
 import { MaterialReactTable } from "material-react-table";
 

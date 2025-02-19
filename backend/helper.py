@@ -1,8 +1,17 @@
+## imports
 import json
+
 ## load sample data
 def get_sample():
-    with open('./data/sample.json', 'r') as file:
-        return json.load(file)
+    try:
+        with open('./data/sample.json', 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        raise Exception("Sample file not found.")
+    
+def get_advisor_by_id(advisor_id):
+    data = get_sample()
+    return next((a for a in data['advisors'] if a['id'] == advisor_id), None)
 
 ## Calculate total value of an account
 def calculate_account_value(account):

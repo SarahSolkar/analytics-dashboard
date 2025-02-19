@@ -1,8 +1,6 @@
 ## imports
 from flask import Flask, jsonify, request
-from datetime import datetime
 from flask_cors import CORS
-import json
 from helper import *
 
 app = Flask(__name__)
@@ -30,7 +28,7 @@ def get_advisors():
 def get_advisor(advisor_id):
     if request.method == "GET":
         data = get_sample()
-        advisor = next((a for a in data['advisors'] if a['id'] == advisor_id), None)
+        advisor = get_advisor_by_id(advisor_id)
         if not advisor:
             return jsonify({'error': 'Advisor not found'}), 404
         
@@ -49,7 +47,7 @@ def get_advisor(advisor_id):
 def get_advisor_accounts(advisor_id):
     if request.method == "GET":
         data = get_sample()
-        advisor = next((a for a in data['advisors'] if a['id'] == advisor_id), None)
+        advisor = get_advisor_by_id(advisor_id)
         if not advisor:
             return jsonify({'error': 'Advisor not found'}), 404
         
@@ -98,4 +96,4 @@ def get_account_holdings(account_number):
         return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
