@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  overflow-x: hidden;
+  font-family: "Noto Sans", serif;
+}
+
+text-color {
+  color: #4941a7;
+}
+.footer-style {
+  width: "100%";
+  font-size: "15px";
+  height: "45px";
+  background-color: #000;
+  color: #fff;
+  margin-top: "-10px";
+  text-align: center;
+}
+.card-pops:hover {
+  box-shadow: 5px 5px 5px 5px #888888;
+}
