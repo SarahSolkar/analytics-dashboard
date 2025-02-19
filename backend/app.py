@@ -4,7 +4,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-# Sample data 
+
 data = {
     "advisors": [
         {
@@ -14,7 +14,7 @@ data = {
                 {"name": "Schwab", "repId": "1271"},
                 {"name": "Fidelity", "repId": "8996"}
             ],
-            "accounts": ["21889645", "21889646", "21889647"]  # List of account numbers managed by this advisor
+            "accounts": ["21889645", "21889646", "21889647"]
         },
         {
             "id": "5",
@@ -119,7 +119,7 @@ def calculate_account_value(account):
     total = 0
     for holding in account['holdings']:
         total += holding['units'] * holding['unitPrice']
-    return round(total, 2)  # Round to 2 decimal places
+    return round(total, 2)
 
 # Helper function to calculate asset summary for an advisor
 def calculate_advisor_assets(advisor_id):
@@ -137,8 +137,8 @@ def calculate_advisor_assets(advisor_id):
         'total_assets': round(total_assets, 2)
     }
 
-# API Routes
 
+# Get all advisors
 @app.route('/api/advisors', methods=['GET'])
 def get_advisors():
     """Get all advisors with asset summaries."""
@@ -154,9 +154,9 @@ def get_advisors():
         })
     return jsonify(result)
 
+# Advisor summary
 @app.route('/api/advisor/<advisor_id>', methods=['GET'])
 def get_advisor(advisor_id):
-    """Get a specific advisor with asset summary."""
     advisor = next((a for a in data['advisors'] if a['id'] == advisor_id), None)
     if not advisor:
         return jsonify({'error': 'Advisor not found'}), 404
@@ -171,9 +171,9 @@ def get_advisor(advisor_id):
     }
     return jsonify(result)
 
+# Advisor Account Information
 @app.route('/api/advisor/<advisor_id>/accounts', methods=['GET'])
 def get_advisor_accounts(advisor_id):
-    """Get all accounts managed by a specific advisor."""
     advisor = next((a for a in data['advisors'] if a['id'] == advisor_id), None)
     if not advisor:
         return jsonify({'error': 'Advisor not found'}), 404
@@ -195,9 +195,9 @@ def get_advisor_accounts(advisor_id):
     
     return jsonify(result)
 
+# Account Information
 @app.route('/api/accounts/<account_number>', methods=['GET'])
 def get_account(account_number):
-    """Get detailed information about a specific account."""
     account = next((acc for acc in data['accounts'] if acc['number'] == account_number), None)
     if not account:
         return jsonify({'error': 'Account not found'}), 404
@@ -208,9 +208,9 @@ def get_account(account_number):
     
     return jsonify(account_with_total)
 
+# Holdings for an account number
 @app.route('/api/accounts/<account_number>/holdings', methods=['GET'])
 def get_account_holdings(account_number):
-    """Get holdings for a specific account with security details."""
     account = next((acc for acc in data['accounts'] if acc['number'] == account_number), None)
     if not account:
         return jsonify({'error': 'Account not found'}), 404
