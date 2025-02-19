@@ -18,8 +18,8 @@ body {
 }
 .card-pops {
   background-color: #fff;
-  border-color: #f5f5f5;
-  border-radius: "10px";
+  border-color: #e9e7e7;
+  border-radius: "15px";
 }
 .card-pops:hover {
   box-shadow: 5px 5px 5px 5px #888888;
