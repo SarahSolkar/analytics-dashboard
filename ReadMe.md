@@ -34,6 +34,7 @@ compound-dashboard/
 ├── backend/
 │   ├── app.py
 │   ├── requirements.txt
+│   ├── helper.py
 │   └── data/
 │       └── sample.json
 ├── frontend/
@@ -61,10 +62,6 @@ compound-dashboard/
 ```
 
 ## Prerequisites
-
-- Python 3.8 or higher
-- Node.js 14 or higher
-- npm or yarn
 
 ### Python Setup
 
@@ -153,7 +150,6 @@ The frontend will start on `http://localhost:5173`
 - Responsive layout using Reactstrap
 - Sortable columns
 - Currency formatting
-- Loading states
 - Error handling
 - Nested table views
 
