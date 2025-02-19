@@ -24,10 +24,22 @@ export const Holdings = (props) => {
         accessorKey: "ticker",
         header: "Ticker",
         Cell: ({ cell }) => <code className="fw-bold">{cell.getValue()}</code>,
+        muiTableHeadCellProps: {
+          align: "center",
+        },
+        muiTableBodyCellProps: {
+          align: "center",
+        },
       },
       {
         accessorKey: "name",
         header: "Holding Name",
+        muiTableHeadCellProps: {
+          align: "center",
+        },
+        muiTableBodyCellProps: {
+          align: "center",
+        },
       },
       {
         accessorKey: "units",
@@ -37,6 +49,12 @@ export const Holdings = (props) => {
             {cell.getValue().toLocaleString()}
           </Badge>
         ),
+        muiTableHeadCellProps: {
+          align: "center",
+        },
+        muiTableBodyCellProps: {
+          align: "center",
+        },
       },
       {
         accessorKey: "unitPrice",
@@ -50,6 +68,12 @@ export const Holdings = (props) => {
             })}
           </span>
         ),
+        muiTableHeadCellProps: {
+          align: "center",
+        },
+        muiTableBodyCellProps: {
+          align: "center",
+        },
       },
       {
         accessorKey: "value",

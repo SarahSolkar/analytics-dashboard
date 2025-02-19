@@ -5,9 +5,39 @@ import { MaterialReactTable } from "material-react-table";
 
 export const AccountsModal = (props) => {
   const details = [
-    { accessorKey: "number", header: "Account Number" },
-    { accessorKey: "name", header: "Account Name" },
-    { accessorKey: "custodian", header: "Custodian" },
+    {
+      accessorKey: "number",
+      header: "Account Number",
+
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
+    },
+    {
+      accessorKey: "name",
+      header: "Account Name",
+
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
+    },
+    {
+      accessorKey: "custodian",
+      header: "Custodian",
+
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
+    },
     {
       accessorKey: "totalValue",
       header: "Total Value",
@@ -20,16 +50,30 @@ export const AccountsModal = (props) => {
           })}
         </span>
       ),
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
     },
-    { accessorKey: "holdings_count", header: "Holding Count" },
+    {
+      accessorKey: "holdings_count",
+      header: "Holding Count",
+
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
+    },
   ];
   return (
     <>
       <Modal isOpen={props.modal} toggle={props.toggle} size="xl">
         <ModalHeader toggle={props.toggle} className="text-color">
-          Account Details
-          <br />
-          <span className="text-muted fs-6">{props.advisor_name}</span>
+          Account Details - {props.advisor_name}
         </ModalHeader>
         <ModalBody>
           <MaterialReactTable

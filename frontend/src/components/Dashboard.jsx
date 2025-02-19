@@ -41,14 +41,32 @@ export const Dashboard = () => {
     {
       accessorKey: "id",
       header: "ID",
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
     },
     {
       accessorKey: "name",
       header: "Advisor Name",
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
     },
     {
       accessorKey: "account_count",
       header: "No. of Accounts",
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
     },
     {
       accessorKey: "total_assets",
@@ -62,6 +80,12 @@ export const Dashboard = () => {
           })}
         </span>
       ),
+      muiTableHeadCellProps: {
+        align: "center",
+      },
+      muiTableBodyCellProps: {
+        align: "center",
+      },
     },
     {
       accessorKey: "actions",
@@ -100,23 +124,24 @@ export const Dashboard = () => {
             <hr className="my-2 ml-3 mr-3 text-color" />
 
             <div className="row mt-3 justify-content-center">
-              <div className="col-md-4">
-                <Card body className="card-pops p-0">
-                  <PieChart advisors={advisors} />
-                </Card>
-              </div>{" "}
-              <div className="col-md-8">
+              <div className="col-md-12">
                 <AdvisorTable data={advisors} columns={columns} />
-              </div>
+              </div>{" "}
             </div>
             <div className="row mt-3">
-              <div className="col-md-6">
-                <Card body className="card-pops p-0">
+              <div className="col-md-4">
+                <Card body className="card-pops p-0 m-1">
+                  <PieChart advisors={advisors} />
+                </Card>
+              </div>
+
+              <div className="col-md-4">
+                <Card body className="card-pops p-0 m-1">
                   <DonutChart advisors={advisors} />
                 </Card>
               </div>
-              <div className="col-md-6">
-                <Card body className="card-pops p-0">
+              <div className="col-md-4">
+                <Card body className="card-pops p-0 m-1">
                   <Chart advisors={advisors} />
                 </Card>
               </div>

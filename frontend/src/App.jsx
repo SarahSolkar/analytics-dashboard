@@ -1,6 +1,5 @@
 import { Dashboard } from "./components/Dashboard";
 import { AppNavbar } from "./components/AppNavbar";
-import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -8,7 +7,6 @@ function App() {
       <div>
         <AppNavbar />
         <Dashboard />
-        <Footer />
       </div>
     </>
   );
