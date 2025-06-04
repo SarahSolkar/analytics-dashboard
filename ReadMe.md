@@ -30,7 +30,7 @@ The system uses a Flask backend API to serve data and a React frontend with Mate
 ## Project Structure
 
 ```
-compound-dashboard/
+anlytics-dashboard/
 ├── backend/
 │   ├── app.py
 │   ├── requirements.txt

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Card } from "reactstrap";
+import { Button, Card, InputGroup, InputGroupText, Input } from "reactstrap";
 import "../styles.css";
 import { PieChart } from "./PieChart";
 import { DonutChart } from "./DonutChart";
@@ -7,6 +7,7 @@ import { AdvisorService } from "../services/AdvisorService";
 import { AdvisorTable } from "./AdvisorTable";
 import { AccountsModal } from "./AccountsModal";
 import { Chart } from "./Chart";
+import { FaSearch } from "react-icons/fa";
 
 export const Dashboard = () => {
   const [modal, setModal] = useState(false);
@@ -14,6 +15,7 @@ export const Dashboard = () => {
   const [advisors, setAdvisors] = useState([]);
   const [accounts, setAccounts] = useState([]);
   const [selectedAdvisor, setSelectedAdvisor] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState(null);
 
   useEffect(() => {
     const fetchAdvisors = async () => {
@@ -37,6 +39,17 @@ export const Dashboard = () => {
       console.error("Error fetching accounts:", error);
     }
   };
+
+  let searchedAdvisor = advisors.filter((adv) => {
+    if (searchKeyword !== null) {
+      if (adv["name"].toLowerCase().includes(searchKeyword)) {
+        return true;
+      }
+    } else {
+      return true;
+    }
+  });
+
   const columns = [
     {
       accessorKey: "id",
@@ -101,6 +114,7 @@ export const Dashboard = () => {
       ),
     },
   ];
+
   return (
     <>
       <div
@@ -122,27 +136,42 @@ export const Dashboard = () => {
           >
             <h4 className="fw-bold text-color">Advisor Dashboard</h4>
             <hr className="my-2 ml-3 mr-3 text-color" />
+            <div className="row justify-content-end">
+              <div className="col-md-3">
+                <InputGroup>
+                  <InputGroupText>
+                    <FaSearch size={20} className="fw-bold" />
+                  </InputGroupText>
+                  <Input
+                    placeholder="Search Advisor"
+                    onChange={(e) => {
+                      setSearchKeyword(e.target.value);
+                    }}
+                  />
+                </InputGroup>
+              </div>
+            </div>
 
             <div className="row mt-3 justify-content-center">
               <div className="col-md-12">
-                <AdvisorTable data={advisors} columns={columns} />
+                <AdvisorTable data={searchedAdvisor} columns={columns} />
               </div>{" "}
             </div>
             <div className="row mt-3">
               <div className="col-md-4">
                 <Card body className="card-pops p-0 m-1">
-                  <PieChart advisors={advisors} />
+                  <PieChart advisors={searchedAdvisor} />
                 </Card>
               </div>
 
               <div className="col-md-4">
                 <Card body className="card-pops p-0 m-1">
-                  <DonutChart advisors={advisors} />
+                  <DonutChart advisors={searchedAdvisor} />
                 </Card>
               </div>
               <div className="col-md-4">
                 <Card body className="card-pops p-0 m-1">
-                  <Chart advisors={advisors} />
+                  <Chart advisors={searchedAdvisor} />
                 </Card>
               </div>
             </div>
